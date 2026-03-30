@@ -1,297 +1,755 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kullanım Koşulları | Yankily</title>
-  <link rel="stylesheet" href="../site.css">
+  <meta name="description" content="Yankily Kullanım Koşulları. Platform kullanımı, kullanıcı yükümlülükleri, abonelikler, veri işleme ve sorumluluk hükümleri." />
+  <meta name="theme-color" content="#3aaa8c" />
+  <link rel="icon" type="image/png" href="../AppIcon-1024.png" />
+  <link rel="apple-touch-icon" href="../AppIcon-1024.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --teal: #3aaa8c;
+      --teal-dark: #2d8f76;
+      --teal-light: #e8f7f3;
+      --bg-top: #b8d8f0;
+      --bg-mid: #d4eaf8;
+      --bg-low: #f3f8fc;
+      --white: #ffffff;
+      --text-dark: #172033;
+      --text-mid: #4b5a70;
+      --text-light: #8191a7;
+      --line: rgba(23, 32, 51, 0.08);
+      --card-shadow: 0 10px 30px rgba(58,170,140,0.10), 0 4px 12px rgba(23,32,51,0.05);
+      --card-shadow-lg: 0 24px 64px rgba(32, 89, 120, 0.16), 0 8px 22px rgba(23,32,51,0.06);
+      --nav-height: 74px;
+      --radius: 24px;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 22px);
+    }
+    body {
+      margin: 0;
+      font-family: 'Nunito Sans', sans-serif;
+      color: var(--text-dark);
+      background:
+        radial-gradient(circle at top right, rgba(168,216,240,0.60), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(178,224,212,0.50), transparent 25%),
+        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 18%, var(--bg-low) 42%, #ffffff 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    a, button { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid rgba(58,170,140,0.25);
+      outline-offset: 3px;
+      border-radius: 12px;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(18px);
+      background: rgba(255,255,255,0.78);
+      border-bottom: 1px solid rgba(58,170,140,0.10);
+    }
+    .topbar-inner {
+      width: min(1240px, calc(100% - 32px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+    .brand-icon-shell {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid rgba(23, 32, 51, 0.10);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .brand-icon {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #ffffff;
+    }
+    .brand-text { min-width: 0; }
+    .brand-name {
+      display: block;
+      font-family: 'Nunito', sans-serif;
+      font-size: 21px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .brand-sub {
+      display: block;
+      margin-top: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-light);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-link {
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-mid);
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .nav-link:hover {
+      color: var(--teal-dark);
+      background: rgba(58,170,140,0.10);
+      transform: translateY(-1px);
+    }
+    .nav-link.current {
+      color: white;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      box-shadow: 0 10px 24px rgba(58,170,140,0.24);
+    }
+    .page {
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 72px;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      background: linear-gradient(165deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.90) 56%, rgba(232,247,243,0.92) 100%);
+      border: 1px solid rgba(255,255,255,0.75);
+      box-shadow: var(--card-shadow-lg);
+      padding: 36px;
+      margin-bottom: 28px;
+    }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+      opacity: 0.55;
+    }
+    .hero::before {
+      width: 240px;
+      height: 240px;
+      background: rgba(168,216,240,0.70);
+      top: -70px;
+      right: -40px;
+    }
+    .hero::after {
+      width: 220px;
+      height: 220px;
+      background: rgba(178,224,212,0.80);
+      bottom: -90px;
+      left: -60px;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+      gap: 24px;
+      align-items: end;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(58,170,140,0.12);
+      color: var(--teal-dark);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 6px rgba(58,170,140,0.12);
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1.08;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    .hero-sub {
+      margin: 0;
+      max-width: 760px;
+      color: var(--text-mid);
+      font-size: 17px;
+      line-height: 1.72;
+    }
+    .meta-card {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.72);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--card-shadow);
+      backdrop-filter: blur(10px);
+    }
+    .meta-card-label {
+      margin: 0 0 12px;
+      color: var(--text-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      background: rgba(58,170,140,0.10);
+      color: var(--teal-dark);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 10px 14px;
+      min-height: 40px;
+    }
+    .content-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 24px;
+      align-items: start;
+    }
+    .article-card, .toc-card {
+      background: rgba(255,255,255,0.90);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: var(--card-shadow-lg);
+      backdrop-filter: blur(12px);
+    }
+    .article-card {
+      padding: 30px;
+    }
+    .toc-card {
+      position: sticky;
+      top: calc(var(--nav-height) + 18px);
+      padding: 22px;
+    }
+    .toc-title {
+      margin: 0 0 14px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .toc-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toc-links a {
+      text-decoration: none;
+      color: var(--text-mid);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .toc-links a:hover {
+      background: rgba(58,170,140,0.10);
+      color: var(--teal-dark);
+      transform: translateX(2px);
+    }
+    .legal-section {
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .legal-section:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+    .legal-section h2 {
+      margin: 0 0 12px;
+      font-family: 'Nunito', sans-serif;
+      font-size: clamp(22px, 2.2vw, 32px);
+      line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    .legal-section p {
+      margin: 0 0 14px;
+      color: var(--text-mid);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .legal-section ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .legal-section li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--text-mid);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .legal-section li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 11px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 5px rgba(58,170,140,0.10);
+    }
+    .footer {
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto 40px;
+      padding: 24px 26px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .footer-links a {
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--text-mid);
+    }
+    @media (max-width: 1024px) {
+      .hero-grid, .content-layout {
+        grid-template-columns: 1fr;
+      }
+      .toc-card {
+        position: static;
+      }
+    }
+    @media (max-width: 720px) {
+      :root {
+        --nav-height: 70px;
+      }
+      .topbar-inner {
+        width: min(100%, calc(100% - 24px));
+        gap: 10px;
+      }
+      .brand-sub {
+        display: none;
+      }
+      .nav {
+        gap: 6px;
+      }
+      .nav-link {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+      .page {
+        width: min(100%, calc(100% - 24px));
+        padding: 20px 0 48px;
+      }
+      .hero {
+        padding: 24px;
+        border-radius: 26px;
+      }
+      .article-card {
+        padding: 22px;
+        border-radius: 22px;
+      }
+      .toc-card {
+        padding: 18px;
+        border-radius: 22px;
+      }
+      .footer {
+        width: min(100%, calc(100% - 24px));
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 0 28px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <main class="shell">
-    <section class="card">
+  <header class="topbar">
+    <div class="topbar-inner">
       <a class="brand" href="../">
-        <img
-          class="brand-icon"
-          src="../AppIcon-1024.png"
-          alt="Yankily app icon"
-        >
-        <span class="brand-name">Yankily</span>
+        <span class="brand-icon-shell">
+          <img class="brand-icon" src="../AppIcon-1024.png" alt="Yankily app icon" />
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">Yankily</span>
+          <span class="brand-sub">Talk to who you miss.</span>
+        </span>
       </a>
 
       <nav class="nav" aria-label="Legal pages">
-        <a class="nav-link" href="../">Ana Sayfa</a>
-        <a class="nav-link current" href="./">Kullanım Koşulları</a>
-        <a class="nav-link" href="../privacy/">Gizlilik</a>
-        <a class="nav-link" href="../kvkk/">KVKK</a>
+        <a class="nav-link" href="../">Ana Sayfa</a><a class="nav-link current" href="../terms/">Kullanım Koşulları</a><a class="nav-link" href="../privacy/">Gizlilik</a><a class="nav-link" href="../kvkk/">KVKK</a>
       </nav>
-
-      <p class="eyebrow">Yasal</p>
-      <h1>Kullanım Koşulları – Kullanıcı Sözleşmesi</h1>
-      <section class="section legal-copy">
-<pre class="legal-text">YANKILY KULLANIM KOŞULLARI - KULLANICI SÖZLEŞMESİ
-
-Son Güncelleme Tarihi: 15.03.2026
-
-İşbu Kullanım Koşulları, Yankily hizmetlerinin kullanımına ilişkin temel sözleşme hükümlerini içerir. Kişisel verilerin işlenmesine, çerez ve benzeri teknolojilere, saklama-imha esaslarına, ücretli satış akışlarına, ön bilgilendirmeye, cayma hakkına, abonelik ve ödeme koşullarına ilişkin işlem bazlı ek metinler, ilgili ekranlarda veya kalıcı veri saklayıcısı ile ayrıca sunulabilir. Emredici mevzuat hükümleri saklıdır; işbu metin ile emredici mevzuat arasında çelişki olması halinde emredici hükümler uygulanır.
-
-I. Tanımlar ve Açıklamalar
-
-"Yankily" veya "Platform"; işletmecisi Eren Özkan olan, kullanıcıların konuşma dışa aktarımlarını yükleyerek belirli bir kişi/konuşmacıya ilişkin dijital persona oluşturmasına, bu persona ile yapay zeka destekli sohbet yürütmesine, ilgili içerikleri yönetmesine ve bağlantılı dijital hizmetlerden yararlanmasına imkan sağlayan mobil uygulama, internet sitesi, backend servisleri, bildirim altyapıları ve ilişkili tüm dijital hizmetleri ifade eder.
-
-"İşletmeci" ve aksi açıkça belirtilmedikçe "Veri Sorumlusu"; iletişim bilgileri işbu sözleşmenin sonunda yer alan Eren Özkan'dır.
-
-"İnternet Sitesi"; yankily.com alan adlı internet sitesi ile buna bağlı sayfa ve hizmetlerdir.
-
-"Mobil Uygulama"; Apple App Store ve/veya yetkili diğer dağıtım kanallarında "Yankily" adıyla sunulan uygulamadır.
-
-"Kullanıcı"; kendi adına hesap oluşturan, Platform'u kullanan ve işbu sözleşmeyi kabul eden gerçek kişidir.
-
-"İlgili Kişi"; 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verisi işlenen gerçek kişiyi ifade eder. Buna Yankily kullanıcısı olmayan ancak yüklenen konuşma dışa aktarımlarında adı, mesajı veya diğer verileri yer alan üçüncü kişiler de dahil olabilir.
-
-"Hesap"; Kullanıcı'nın kimlik doğrulama, profil, ayar, bildirim tercihi, persona, sohbet ve ilgili hizmet kayıtlarının bütünüdür.
-
-"İçe Aktarılan Veri"; Kullanıcı tarafından Platform'a yüklenen konuşma dışa aktarımları, metin ve arşiv dosyaları, katılımcı adları, mesaj içerikleri, tarih-saat bilgileri, varsa ekli bağlamsal veriler ve bunlardan türetilen işlem çıktılarıdır.
-
-"Persona"; İçe Aktarılan Veri ve/veya Kullanıcı'nın manuel girdiği açıklamalar, talimatlar, ayarlar ve tercihler kullanılarak oluşturulan, belirli bir konuşma tarzını, tonunu veya ifade biçimini yaklaşık olarak modellemeyi amaçlayan dijital profildir.
-
-"AI Sohbet"; Persona, hafıza kayıtları, alıntılar, bağlamsal eşleştirmeler ve yapay zeka modelleri kullanılarak üretilen sohbet çıktılarıdır.
-
-"İçerik"; Kullanıcı tarafından Platform'a yüklenen, girilen, kaydedilen, gönderilen veya oluşturulan her türlü metin, fotoğraf, ses kaydı, profil fotoğrafı, destek talebi, sohbet mesajı, persona ayarı, talimat ve diğer verileri ifade eder.
-
-"Özel Nitelikli Kişisel Veri"; yürürlükteki KVKK mevzuatı uyarınca özel korumaya tabi sağlık, cinsel hayat, ceza mahkumiyeti, siyasi düşünce, dini inanç, biyometrik veri ve benzeri verileri ifade eder.
-
-"Kalıcı Veri Saklayıcısı"; tüketiciye veya ilgili kişiye gönderilen bilgilerin makul süre boyunca değişmeden saklanmasına ve aynen erişilmesine imkan veren e-posta, kısa mesaj, uygulama içi indirilebilir belge, hesap içi kayıt, disk ve benzeri araçları ifade eder.
-
-"Kullanım Koşulları" veya "Sözleşme"; işbu Yankily Kullanım Koşulları - Kullanıcı Sözleşmesi'dir.
-
-II. Sözleşmenin Konusu
-
-İşbu Sözleşme; Platform'un kapsamını, Kullanıcı'nın hak ve yükümlülüklerini, yasaklı kullanımları, kişisel veri ve içerik yönetimine ilişkin temel esasları, tüketiciye yönelik ücretli hizmet kurallarını, bildirim ve destek süreçlerini, hesabın kapatılmasını ve sorumluluk hükümlerini düzenler.
-
-Kullanıcı, hesap oluşturarak, uygulamayı indirerek, Platform'a içerik yükleyerek, herhangi bir hizmetten yararlanarak veya "kabul ediyorum" benzeri bir onay vererek işbu Sözleşme'yi okuduğunu, anladığını ve kabul ettiğini beyan eder.
-
-III. Hizmetin Kapsamı ve Platform Niteliği
-
-Yankily bir dijital teknoloji platformudur. Platform; Kullanıcı'nın yüklediği konuşma verilerinden persona oluşturulmasına, bu persona ile yapay zeka destekli sohbet kurulmasına, persona ayarlarının yönetilmesine, fotoğraf ve ses eki gibi destekleyici özelliklerin kullanılmasına, destek ve bildirim mekanizmalarının işletilmesine imkan sağlar.
-
-Yankily, herhangi bir gerçek kişinin birebir aynısı olduğunu, belirli bir kişinin iradesini, rızasını, düşüncesini veya beyanını eksiksiz ve doğru şekilde temsil ettiğini garanti etmez. Persona ve AI Sohbet çıktıları, algoritmik analiz ve yapay zeka üretimi sonucu oluşan yaklaşık/simülatif çıktılardır.
-
-Yankily; tıbbi teşhis veya tedavi, hukuki mütalaa, finansal yatırım tavsiyesi, kimlik doğrulama, vekalet, temsil, psikolojik danışmanlık veya acil yardım hizmeti sunmaz.
-
-IV. Üyelik ve Hesap Koşulları
-
-Platform'u kullanabilmek için Kullanıcı'nın reşit, fiil ehliyetine sahip ve işbu Sözleşme'yi kendi adına akdetmeye yetkili olması gerekir.
-
-Kullanıcı, hesap oluştururken sunduğu bilgilerin doğru, güncel ve kendisine ait olduğunu kabul eder. Yanıltıcı, sahte, başkasına ait veya hukuka aykırı bilgi kullanılması yasaktır.
-
-Hesap kişiye özeldir; üçüncü kişilere devredilemez, kiralanamaz, ödünç verilemez veya kullandırılamaz.
-
-İşletmeci; güvenlik, sahteciliğin önlenmesi, mevzuata uyum, hesap bütünlüğü, ödeme uyuşmazlığı, kötüye kullanım şüphesi veya teknik gereklilikler nedeniyle ek doğrulama, erişim kısıtlaması, oturum sonlandırma veya hesap askıya alma önlemleri alabilir.
-
-V. Kullanıcı Beyan ve Yükümlülükleri
-
-Kullanıcı:
-
-1. Platform'a yüklediği veya Platform üzerinden işlediği içerikler üzerinde gerekli hak, izin ve hukuki dayanaklara sahip olduğunu,
-2. Üçüncü kişilerin kişilik haklarını, özel hayatını, haberleşme gizliliğini, fikri mülkiyet haklarını ve diğer yasal haklarını ihlal etmeyeceğini,
-3. Platform'u aldatma, manipülasyon, taciz, dolandırıcılık, kimliğe bürünme, iftira, şantaj, tehdit, spam, yasa dışı ticari faaliyet veya diğer hukuka aykırı amaçlarla kullanmayacağını,
-4. Platform aracılığıyla oluşturulan persona veya AI çıktıları gerçek kişiymiş gibi yanıltıcı biçimde, karşı tarafı aldatmak amacıyla veya üçüncü kişilerin güvenini kötüye kullanacak şekilde kullanmayacağını,
-5. Güvenlik önlemlerini aşmaya, tersine mühendisliğe, yetkisiz erişime, sistem bütünlüğünü bozmaya veya hizmeti kötüye kullanmaya yönelik davranışlarda bulunmayacağını,
-6. Geçerli mevzuata, uygulama mağazası kurallarına ve işbu Sözleşme'ye uygun hareket edeceğini,
-7. Mümkün olan hallerde üçüncü kişilere ait gereksiz kişisel verileri yüklememeyi; zorunlu olmayan durumlarda üçüncü kişi verilerini anonimleştirmeyi, maskelemeyi veya redakte etmeyi,
-8. Özel nitelikli kişisel verileri ancak açık, meşru ve yeterli bir hukuki dayanak varsa yükleyeceğini; böyle bir dayanak yoksa bu tür verileri Platform'a aktarmayacağını
-kabul, beyan ve taahhüt eder.
-
-VI. İçe Aktarılan Veri, Persona Oluşturma, AI Sohbet ve Kişisel Verilerin İşlenmesi
-
-1. Genel veri işleme çerçevesi
-Yankily kapsamında işlenen başlıca veri kategorileri; kimlik ve hesap bilgileri, iletişim bilgileri, kimlik doğrulama ve cihaz bilgileri, konuşma dışa aktarımları, katılımcı isimleri, mesaj içerikleri, tarih-saat verileri, persona ayarları ve talimatları, sohbet kayıtları, alıntı ve hafıza kayıtları, fotoğraf ve ses kayıtları, transkripsiyon çıktıları, profil fotoğrafı, destek talepleri, log ve güvenlik kayıtları, ödeme ve abonelikle ilgili işlem kayıtları ile hukuki uyum kayıtlarından oluşabilir.
-
-2. İşleme amaçları
-Bu veriler; hesabın oluşturulması ve yönetilmesi, kimlik doğrulama, içe aktarma işlemlerinin yürütülmesi, persona oluşturulması, AI Sohbet'in sunulması, içerik ve eklerin işlenmesi, güvenlik ve kötüye kullanımın önlenmesi, moderasyon, destek süreçlerinin yürütülmesi, bildirimlerin gönderilmesi, ödeme ve abonelik işlemlerinin yürütülmesi, yasal yükümlülüklerin yerine getirilmesi, uyuşmazlık çözümü, denetim izi, kayıt tutma, hata analizi, performans ve hizmet sürekliliği amaçlarıyla işlenebilir.
-
-3. Veri toplama yöntemi ve hukuki sebepler
-Kişisel veriler; doğrudan Kullanıcı'dan, Mobil Uygulama ve İnternet Sitesi arayüzlerinden, yüklenen dosyalardan, cihaz ve kullanım kayıtlarından, destek başvurularından, ödeme/mağaza altyapılarından, kimlik doğrulama servislerinden ve otomatik/yarı otomatik teknik araçlardan elde edilebilir.
-
-İşleme faaliyetleri, ilgili işleme amacı bakımından geçerli olduğu ölçüde; sözleşmenin kurulması veya ifası, hukuki yükümlülüklerin yerine getirilmesi, bir hakkın tesisi/kullanılması/korunması, meşru menfaat, kanunlarda öngörülme, açık rıza ve KVKK'da öngörülen diğer işleme şartlarına dayanabilir. Özel nitelikli kişisel veriler bakımından ayrıca KVKK m.6 kapsamında geçerli işleme şartı aranır.
-
-4. Alıcı grupları ve veri aktarımı
-Kişisel veriler; hizmetin sunulması amacıyla yetkili tedarikçiler, barındırma ve bulut hizmeti sağlayıcıları, kimlik doğrulama hizmetleri, depolama altyapıları, bildirim servisleri, ödeme ve abonelik altyapıları, müşteri destek araçları, yapay zeka ve transkripsiyon servis sağlayıcıları, güvenlik ve loglama altyapıları, hukuk ve muhasebe danışmanları ile kanunen yetkili kamu kurum ve kuruluşlarına aktarılabilir.
-
-Yurt dışına veri aktarımı gerekmesi halinde aktarım, yürürlükteki KVKK m.9 rejimi kapsamında geçerli olduğu ölçüde ve uygun hukuki mekanizmalardan biri kullanılarak yapılır. Bu kapsamda yeterlilik kararı, standart sözleşmeler, bağlayıcı şirket kuralları veya mevzuatta öngörülen istisnai aktarım halleri kullanılabilir. Aktarımın kapsamı ve alıcı grupları, işlem bazında sunulan aydınlatma metinlerinde ayrıca detaylandırılabilir.
-
-5. Üçüncü kişi verileri ve kullanıcı sorumluluğu
-Kullanıcı, sohbet dışa aktarımlarında yer alan üçüncü kişi verilerini Platform'a yüklemeden önce bu işleme bakımından gerekli izin, açık rıza veya diğer hukuki dayanaklara sahip olduğunu kabul eder. İşletmeci, üçüncü kişi verileri bakımından ek açıklama, kanıt veya kaldırma talep etme hakkını saklı tutar.
-
-Kullanıcı, hukuki dayanağı bulunmayan özel nitelikli kişisel verileri, çocuklara ait hassas içerikleri, müstehcen içerikleri, sağlık raporlarını, banka ve ödeme bilgilerini veya benzeri yüksek riskli verileri gereksiz yere yüklememelidir.
-
-6. İlgili kişi hakları
-KVKK kapsamında ilgili kişiler; kendileriyle ilgili kişisel verilerin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işleme amacını ve amaca uygun kullanımı öğrenme, yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri öğrenme, eksik veya yanlış işlenen verilerin düzeltilmesini isteme, silme veya yok etme talep etme, otomatik sistemlerce analiz sonucu aleyhe bir sonuca itiraz etme ve kanuni şartları varsa zararın giderilmesini talep etme haklarına sahiptir.
-
-Bu kapsamda başvurular, support@yankily.com e-posta adresi veya işbu sözleşmede yer alan posta adresi üzerinden iletilebilir. Veri sorumlusu, talebi niteliğine göre en kısa sürede ve en geç otuz gün içinde ücretsiz olarak sonuçlandırır; işlemin ayrıca bir maliyet gerektirmesi halinde mevzuatta izin verilen ücret talep edilebilir. Başvurunun reddi, cevabın yetersizliği veya süresinde cevap verilmemesi halinde ilgili kişi, KVKK mevzuatında öngörülen süreler dahilinde Kişisel Verileri Koruma Kurumu'na başvurabilir.
-
-Yankily kullanıcısı olmayan üçüncü kişiler de, kendilerine ait verilerin sohbet dışa aktarımlarında işlendiğini düşünmeleri halinde aynı kanallar üzerinden başvuru yapabilir. İşletmeci, talep sahibinin kimliğini doğrulama ve yetkisiz üçüncü kişilere veri açıklamama hakkını saklı tutar.
-
-7. Açık rıza, tercihler ve zorunlu olmayan işlemler
-Hizmetin ifası için zorunlu olmayan, pazarlama, isteğe bağlı kişiselleştirme, bazı bildirim türleri, bazı çerez/SDK kullanımları veya mevzuat uyarınca açık rıza gerektiren diğer işlemler bakımından ilgili kişiye ayrı tercih sunulabilir. Hizmetin ifasıyla ilgisiz veri işleme faaliyetleri, mümkün olduğu ölçüde, hizmete erişimin ön şartı haline getirilmez.
-
-8. Tamamlayıcı veri koruma metinleri
-Yankily'nin KVKK Aydınlatma Metni, gerektiğinde Açık Rıza Metinleri, Çerez/SDK Aydınlatma Metni ve Saklama-İmha esasları, ilgili işlem anında veya uygulama/site üzerinde ayrıca sunulabilir. İşlem bazlı aydınlatmalar, bu genel sözleşme hükümlerini tamamlar.
-
-VII. Fotoğraf, Ses Kaydı, Profil Fotoğrafı ve Diğer İçerikler
-
-Platform, Kullanıcı'ya sohbet içinde fotoğraf yükleme/gönderme, sesli not kaydetme ve gönderme, profil fotoğrafı yükleme/güncelleme ve benzeri içerik işlevleri sunabilir.
-
-Ses kayıtları, hizmetin işlenebilmesi amacıyla transkripsiyon/çözümleme süreçlerinden geçirilebilir. Fotoğraflar ve diğer ekler, ilgili sohbet veya işleme akışı kapsamında depolanabilir, işlenebilir veya ilişkilendirilebilir.
-
-İçe aktarılan ham dosyalar, hizmetin teknik olarak yürütülmesi için geçici biçimde saklanabilir; iş akışı tamamlandıktan sonra operasyonel gereklilik kalmaması halinde tutulmayabilir, silinebilir veya erişime kapatılabilir. Bununla birlikte, persona, sohbet, hafıza, alıntı, iş emri, log, güvenlik, ödeme, destek, doğrulama ve benzeri türetilmiş veya ilişkili kayıtlar; hizmet sunumu, mevzuata uyum, denetim izi, ispat ve uyuşmazlık çözümü amaçlarıyla saklanabilir.
-
-Profil fotoğrafı, sohbet eki veya destek içeriği olarak yüklenen materyaller bakımından Kullanıcı; gerekli kullanım haklarına sahip olduğunu ve hukuka aykırı içerik yüklemeyeceğini kabul eder.
-
-VIII. Sakıncalı İçerik ve Kötüye Kullanıma Karşı Sıfır Tolerans
-
-Yankily, sakıncalı içerik ve kötüye kullanım bakımından sıfır tolerans politikası uygular. Aşağıdaki içerik ve davranışlar yasaktır:
-
-1. Taciz, nefret söylemi, ayrımcılık, zorbalık, tehdit veya şiddete teşvik,
-2. Cinsel istismar, çocukların istismarı, müstehcen veya sömürücü içerik,
-3. Grafik şiddet, işkence veya ağır zarar içeren içerik,
-4. Dolandırıcılık, spam, sahtecilik, kimliğe bürünme, deepfake benzeri aldatıcı kullanım,
-5. Başkası adına aldatıcı mesaj üretme, üçüncü kişileri yanıltmaya yönelik persona kullanımı,
-6. Kendine zarar verme talimatı, intihara yönlendirme veya buna yardımcı içerik,
-7. Yasa dışı faaliyet, suç işlemeye teşvik, güvenlik ihlali girişimi veya zararlı yazılım,
-8. Kişisel verilerin izinsiz paylaşılması, özel hayatın ihlali, doxxing veya mahremiyet ihlali,
-9. Fikri mülkiyet, kişilik hakkı veya diğer yasal hak ihlalleri,
-10. İşbu Sözleşme veya yürürlükteki mevzuata aykırı diğer kullanımlar.
-
-İşletmeci; içerikleri kaldırabilir, işleme almayabilir, görünürlüğünü kısıtlayabilir, ilgili veri setini silebilir, sohbet veya persona akışını durdurabilir, hesabı askıya alabilir veya kalıcı olarak kapatabilir. Ağır ihlaller ilgili resmi mercilere bildirilebilir.
-
-Kişilik hakları, fikri mülkiyet, mahremiyet, izinsiz içerik, özel görüntü/ses, üçüncü kişi verisi veya diğer hak ihlallerine ilişkin başvurular, support@yankily.com adresine "Uyar-Kaldır Bildirimi" veya benzeri açık bir başlıkla iletilebilir. Başvuruda başvuranın kimliği, ihlale konu içerik, bağlantı/kayıt bilgisi, hak sahipliği/temsil yetkisi ve talebin gerekçesi açıkça belirtilmelidir. İşletmeci, talepleri hukuki zorunluluk ve olayın niteliği doğrultusunda değerlendirir.
-
-IX. Güvenlik, Riskli Tavsiye Talepleri ve Yapay Zeka Sınırlamaları
-
-Yankily; üçüncü kişi adına aldatıcı iletişim üretme, kimliğe bürünme, kendine zarar verme talimatı, tıbbi teşhis/tedavi önerisi, hukuki tavsiye, finansal yatırım önerisi ve benzeri yüksek riskli talepleri sınırlayabilir, filtreleyebilir, reddedebilir veya güvenlik mesajı gösterebilir.
-
-Platform seviyesinde veya persona bazında ek güvenlik katmanları uygulanabilir. Kullanıcı tarafından bazı tercihler seçilmiş olsa dahi İşletmeci, sistem bütünlüğü ve mevzuata uyum için daha katı güvenlik kuralları uygulayabilir.
-
-AI Sohbet çıktıları eksik, hatalı, bağlam dışı, güncel olmayan veya yanıltıcı olabilir. Bu çıktılar; profesyonel tıbbi, hukuki, finansal, psikolojik veya acil destek hizmeti yerine geçmez. Kullanıcı, özellikle sağlık, hukuk, finans, güvenlik ve üçüncü kişilerin haklarını etkileyen alanlarda bağımsız değerlendirme yapmayı ve gerektiğinde yetkili uzmanlardan destek almayı kabul eder.
-
-İşletmeci, kişisel verilerin hukuka aykırı işlenmesini önlemek, yetkisiz erişimi engellemek ve verilerin muhafazasını sağlamak amacıyla makul teknik ve idari tedbirler almaya çalışır. Buna rağmen hiçbir sistemin mutlak güvenlik garantisi yoktur.
-
-İşlenen kişisel verilerin kanuni olmayan yollarla üçüncü kişilerce elde edildiğinin tespit edilmesi halinde, mevzuatın gerektirdiği ölçüde ilgili kişilere ve yetkili kurumlara uygun yöntemlerle bildirim yapılır. Uygun olduğu ölçüde ve mümkünse Kişisel Verileri Koruma Kurulu'na gecikmeksizin ve en geç 72 saat içinde bildirim yapılması hedeflenir.
-
-X. Ücretler, Mesafeli Sözleşmeler, Abonelikler, Krediler ve İadeler
-
-Yankily, ücretsiz özelliklerin yanı sıra abonelikli planlar, kredi bazlı kullanım hakları, ek kredi/top-up paketleri veya ücretli özellikler sunabilir. Bu hizmetlerin sunulması halinde geçerli plan bilgileri, limitler, yenileme koşulları, varsa uyumluluk bilgileri, teknik koruma önlemleri, fiyatlar, vergiler ve ödeme esasları uygulama içinde, ilgili satış ekranında veya yetkili ödeme kanalında ayrıca gösterilir.
-
-Tüketiciden ödeme yükümlülüğü doğmadan önce, yürürlükteki mesafeli sözleşme mevzuatına uygun ön bilgilendirme ayrı bir ekranda veya kalıcı veri saklayıcısı ile sunulabilir. Bu ön bilgilendirme, en azından ürün/hizmetin temel nitelikleri, satıcı/sağlayıcı bilgileri, hızlı temas kanalları, toplam fiyat, ödeme ve ifa koşulları, şikayet çözüm yöntemleri, varsa cayma hakkı ve istisnaları, dijital içeriğin uyumluluk/işlevsellik bilgileri ile tüketici uyuşmazlık başvuru yollarını içerebilir.
-
-Tüketici, mesafeli sözleşme kurulmadan önce siparişin ödeme yükümlülüğü doğurduğu konusunda açık biçimde bilgilendirilir. Ön bilgilendirmenin teyidi alınabilir. Ön bilgilendirme ve sözleşme kayıtları, uygun olduğu ölçüde kalıcı veri saklayıcısı ile saklanabilir veya erişime sunulabilir.
-
-Mevzuatta aksi öngörülmeyen haller saklı kalmak kaydıyla, tüketicinin mesafeli sözleşmelerde on dört gün içinde herhangi bir gerekçe göstermeksizin ve cezai şart ödemeksizin cayma hakkı bulunabilir. Ancak dijital içerik veya dijital hizmet niteliği taşıyan bazı işlemlerde, mevzuatın izin verdiği hallerde, ifaya cayma süresi sona ermeden başlanması için tüketiciden ayrıca açık talep/onay alınabilir ve bu durumda cayma hakkının sonuçlarına ilişkin ayrıca teyit alınabilir.
-
-Cayma hakkının kullanımı, süresi, istisnaları, iade yöntemi ve örnek cayma formu ilgili satış akışında ayrıca sunulur. Mevzuat gereği bilgilendirme yapılmayan hallerde zorunlu tüketici hakları saklıdır.
-
-Abonelik sunulması halinde:
-
-1. Belirsiz süreli veya süresi bir yıl ve daha uzun abonelikler, tüketici tarafından herhangi bir gerekçe göstermeksizin ve cezai şart ödemeksizin istenilen zamanda feshedilebilir.
-2. Fesih yöntemi, sözleşmenin kurulmasını sağlayan yöntemden daha ağır olamaz ve tüketicinin fesih hakkını zorlaştıracak şekilde kurgulanamaz.
-3. Fesih bildiriminin yazılı olarak veya kalıcı veri saklayıcısı ile iletilmesi yeterlidir.
-4. Fesih talebi, mevzuatta daha lehe bir süre öngörülmedikçe, bildirimin ulaştığı tarihten itibaren en geç yedi gün içinde yerine getirilir.
-5. Feshin hüküm ifade etmesinden sonra kalan peşin ödemeler, depozito veya teminat niteliğindeki tutarlar mevzuata uygun sürelerde iade edilir.
-
-App Store veya diğer yetkili ödeme aracılarının kullanıldığı durumlarda ödeme, yenileme, iptal, abonelik yönetimi, faturalandırma ve iade süreçleri ilgili ödeme kanalının kurallarıyla birlikte değerlendirilir. Ancak zorunlu tüketici hakları saklıdır.
-
-Aktif fiyat listesi, kesin iade oranı veya sabit kredi politikası işbu metinle vaat edilmez. Geçerli plan ve kullanım koşulları işlem anındaki satış ekranı ve ek koşullar ile belirlenir.
-
-XI. Bildirimler, Ticari Elektronik İletiler, Çerezler/SDK'lar ve Destek Talepleri
-
-Kullanıcı; uygulama içi bildirimler, hesap içi uyarılar, operasyonel push bildirimleri, e-posta bilgilendirmeleri ve benzeri araçlarla hizmete ilişkin bilgi alabilir.
-
-Operasyonel bildirimler ile pazarlama/tanıtım bildirimleri mümkün olduğu ölçüde birbirinden ayrıştırılır. Bir hizmetin doğal parçası olan işlem/hesap/güvenlik bildirimlerinin alınması, ilgisiz pazarlama bildirimlerine onay verilmesine bağlanmaz.
-
-Ticari elektronik ileti gönderimi yapılması halinde, bu iletiler yürürlükteki elektronik ticaret ve ticari ileti mevzuatına uygun biçimde yönetilir. Gerekli olduğu ölçüde önceden onay alınır; ret hakkı kolay, ücretsiz ve erişilebilir şekilde sağlanır. İlgili tercihler, mevzuatın gerektirdiği ölçüde İleti Yönetim Sistemi ve benzeri altyapılar üzerinden de yönetilebilir.
-
-İnternet Sitesi ve Mobil Uygulama; çerez, cihaz tanımlayıcıları, SDK'lar, benzeri izleme/analitik teknolojiler veya üçüncü taraf yazılım bileşenleri kullanabilir. Hangi teknoloji ve hangi amaçla kullanıldığı, bunların saklama süreleri, birinci veya üçüncü taraf niteliği ve gerekliyse onay mekanizmaları, ayrı Çerez/SDK Aydınlatma Metni veya ilgili gizlilik ekranlarında gösterilebilir.
-
-Kullanıcı, destek veya şikayet taleplerini uygulama içi araçlar, destek e-postası veya ilgili iletişim kanalları üzerinden iletebilir. Destek kayıtları; takip, doğrulama, sorun çözümü, hizmet kalitesi, güvenlik, yasal uyum ve denetim amaçlarıyla saklanabilir.
-
-XII. Veri Silme, Saklama, Hesap Kapatma ve Sonlandırma
-
-Kullanıcı, uygulama içi uygun alanlar üzerinden belirli veri setlerini, personayı, sohbetleri veya hesabını silme talebinde bulunabilir. Teknik bağımlılıklar sebebiyle belirli bir içeriğin silinmesi, ilişkili persona, hafıza, sohbet, ek dosya veya diğer kayıtların da kaldırılmasına yol açabilir.
-
-Hesabın silinmesi halinde Kullanıcı'ya ait hesap kaydı, içe aktarılan veri setleri, persona kayıtları, sohbet oturumları, ilişkili içerikler ve bunlarla bağlantılı bazı veriler silinebilir, anonimleştirilebilir veya erişime kapatılabilir. Bununla birlikte, hukuki yükümlülükler, veri güvenliği, denetim izi, muhasebe/faturalandırma, zamanaşımı, uyuşmazlık çözümü, kötüye kullanımın önlenmesi ve mevzuata uyum amaçlarıyla saklanması zorunlu veya meşru olan kayıtlar tutulabilir.
-
-Kişisel veriler, yalnızca ilgili işleme amacının gerektirdiği süre boyunca ve ilgili mevzuatın izin verdiği ölçüde saklanır. Saklama süreleri; hizmet gerekliliği, yasal yükümlülük, ispat ihtiyacı, güvenlik, abonelik/ödeme kayıtları ve zamanaşımı kriterleri dikkate alınarak belirlenir. Daha detaylı saklama ve imha esasları ayrı politika/metinlerde düzenlenebilir.
-
-Erişim, trafik, güvenlik ve yer sağlayıcı/yayıncılık kapsamındaki teknik kayıtlar; uygulanabilir internet mevzuatı, güvenlik ve denetim yükümlülükleri çerçevesinde ayrıca tutulabilir.
-
-İşletmeci; işbu Sözleşme'nin ihlali, güvenlik riski, kötüye kullanım şüphesi, üçüncü kişi hak ihlali, yasal zorunluluk, ödeme uyuşmazlığı, teknik bütünlük veya ticari/operasyonel gereklilik nedeniyle hesabı askıya alabilir, sınırlandırabilir veya kapatabilir.
-
-XIII. Fikri Mülkiyet ve Lisans
-
-Yankily'ye ait yazılım, tasarım, marka, logo, arayüz, veri yapıları, derlemeler, dokümantasyon ve diğer tüm unsurlar üzerindeki haklar, aksi açıkça belirtilmedikçe İşletmeci'ye ve/veya ilgili hak sahiplerine aittir.
-
-Kullanıcı'ya, Mobil Uygulama'yı ve hizmetleri yalnızca kişisel, yasal ve işbu Sözleşme'ye uygun kullanım amacıyla kullanabilmesi için sınırlı, geri alınabilir, münhasır olmayan, devredilemez ve alt lisans verilemez bir kullanım hakkı tanınır.
-
-Kullanıcı; Platform'u kopyalayamaz, çoğaltamaz, dağıtamaz, satamaz, kiralayamaz, tersine mühendislik yapamaz, decompile edemez, kaynak koda dönüştüremez, güvenlik ve erişim kontrollerini aşamaz veya hizmeti bozacak biçimde kullanamaz.
-
-XIV. Sorumluluğun Sınırlandırılması ve Tazmin
-
-Yürürlükteki hukuk tarafından izin verilen azami ölçüde; Yankily, İşletmeci, çalışanlar, temsilciler, iş ortakları ve altyapı sağlayıcıları; Platform'un kullanımından, AI çıktılarının hatalı veya eksik olmasından, persona'nın gerçek kişiyi birebir yansıtmamasından, içerik kaybından, veri doğruluğu sorunlarından, üçüncü kişi fiillerinden veya hizmet kesintilerinden doğan dolaylı, arızi veya sonuç zararlarından sorumlu değildir.
-
-Bununla birlikte, emredici tüketici mevzuatı, KVKK'dan doğan yükümlülükler, kasıt, ağır kusur ve sorumluluğun mevzuat gereği sınırlandırılamadığı haller saklıdır. İşbu Sözleşme, İşletmeci'nin emredici hukuk kuralları uyarınca bertaraf edilemeyecek sorumluluğunu kaldırmaz.
-
-Platform "olduğu gibi" ve "mevcut olduğu ölçüde" sunulur. Belirli bir amaca uygunluk, kesintisizlik, kusursuzluk, sürekli erişilebilirlik veya belirli bir sonucun elde edileceğine dair açık ya da zımni garanti verilmez.
-
-Kullanıcı; işbu Sözleşme'yi ihlali, hukuka aykırı içeriği, üçüncü kişi haklarını ihlali veya Platform'u kötüye kullanımı nedeniyle doğabilecek talep, zarar, masraf, idari yaptırım ve benzeri yükümlülüklerden İşletmeci'yi sorumlu tutmayacağını, kusuru oranında doğan zararları tazmin edeceğini kabul eder.
-
-XV. Değişiklikler, Uygulanacak Hukuk ve Yetki
-
-İşbu Kullanım Koşulları, Yankily tarafından zaman zaman güncellenebilir, değiştirilebilir veya genişletilebilir. Güncel metin internet sitesinde, mobil uygulamada veya ilgili dijital kanallarda yayımlandığı tarihte yürürlüğe girer.
-
-Değişikliklerden sonra Platform'un kullanılmaya devam edilmesi, güncel Sözleşme'nin kabulü anlamına gelir. Tüketici aleyhine önemli sonuç doğuran değişiklikler bakımından, mevzuatın gerektirdiği ölçüde ayrıca bildirim veya tercih sunulabilir.
-
-İşbu Sözleşme Türkiye Cumhuriyeti hukukuna tabidir.
-
-Tüketici sıfatını haiz Kullanıcı'lar bakımından, uyuşmazlıkların çözümünde yürürlükteki tüketici mevzuatında öngörülen Tüketici Hakem Heyeti, zorunlu arabuluculuk, Tüketici Mahkemesi ve diğer başvuru yolları saklıdır. Tüketici, mevzuatın izin verdiği yer bakımından kendi yerleşim yerindeki veya tüketici işleminin yapıldığı yerdeki yetkili mercilere başvurabilir.
-
-Tüketici sıfatını haiz olmayan kişiler bakımından, işbu Sözleşme'den doğan uyuşmazlıklarda İstanbul Anadolu Mahkemeleri ve İstanbul Anadolu İcra Müdürlükleri yetkilidir.
-
-XVI. İletişim Bilgileri
-
-İşletmeci: Eren Özkan
-Web Sitesi: https://yankily.com
-Destek E-postası: support@yankily.com
-Posta Adresi: Ataşehir Merkez PTT Şubesi, Küçükbakkalköy Mah. Kayışdağı Cad. No:87/A, 34750 Ataşehir/İstanbul, Türkiye
-Hızlı temas kanalları: uygulama içi destek araçları, destek e-postası ve internet sitesi üzerinden sunulan iletişim alanlarıdır. Ücretli satış akışlarında, varsa telefon, MERSİS, vergi ve ilave satıcı/sağlayıcı kimlik/temas bilgileri ayrıca gösterilebilir. Tanıtıcı bilgiler, uygulanabilir internet mevzuatının gerektirdiği ölçüde erişilebilir tutulur.
-
-XVII. Son Kullanıcı Lisans Sözleşmesi (EULA) Niteliğindeki Hükümler
-
-İşbu bölüm, işbu Kullanım Koşulları'nın ayrılmaz parçasıdır. Kullanıcı, hesap oluşturarak, uygulamayı indirerek, uygulamayı kullanarak veya "kabul" beyanında bulunarak bu lisans hükümlerini de kabul etmiş sayılır.
-
-1. Lisans Kapsamı
-Kullanıcı'ya Mobil Uygulama'yı yalnızca kişisel kullanım amacıyla, desteklenen cihazlarda ve işbu Sözleşme'ye uygun şekilde kullanması için sınırlı bir lisans verilir.
-
-2. Güncellemeler
-Yankily; güvenlik, performans, uyumluluk ve özellik geliştirmeleri amacıyla güncellemeler yayımlayabilir. Bazı özellikler üçüncü taraf servis sağlayıcılar, bulut altyapıları, kimlik doğrulama araçları, bildirim servisleri veya yapay zeka sağlayıcıları üzerinden çalışabilir.
-
-3. Kullanım Kısıtlamaları
-Kullanıcı:
-- Uygulama'yı kopyalayamaz, çoğaltamaz, decompile edemez, reverse engineer yapamaz, değiştiremez veya kaynak koda dönüştüremez.
-- Uygulama'nın güvenliğini, lisans doğrulamasını veya erişim kontrollerini aşamaz.
-- Uygulama'yı kötü amaçlı, otomatik, yanıltıcı veya hukuka aykırı amaçlarla kullanamaz.
-
-4. Mağaza Koşulları
-Mobil Uygulama'nın Apple App Store veya başka bir yetkili mağaza üzerinden edinilmesi halinde, ilgili mağazanın zorunlu dağıtım ve kullanım kuralları ayrıca uygulanabilir. Bu kurallar ile işbu Sözleşme arasında çelişki olması halinde, emredici olduğu ölçüde ilgili mağaza ve mevzuat hükümleri öncelikle uygulanır.
-
-5. Lisansın Sona Ermesi
-Kullanıcı'nın işbu Sözleşme'yi ihlal etmesi, hesabının kapatılması veya uygulamayı kullanma hakkının sona ermesi halinde verilen lisans kendiliğinden sona erer. Bu durumda Kullanıcı, uygulamanın kullanımını durdurmakla yükümlüdür.
-
-Son Hüküm
-
-Kullanıcı, Yankily'nin yapay zeka destekli, veri işleme ve persona simülasyonu temelli bir hizmet olduğunu; bu nedenle içerik doğruluğu, birebir temsil, sürekli erişilebilirlik ve sonuç garantisi verilemeyeceğini; Platform'u yalnızca hukuka uygun, dürüst ve güvenli amaçlarla kullanacağını kabul eder.</pre>
-      </section>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Yasal</p>
+          <h1>Kullanım Koşulları</h1>
+          <p class="hero-sub">Yankily Kullanım Koşulları. Platform kullanımı, kullanıcı yükümlülükleri, abonelikler, veri işleme ve sorumluluk hükümleri.</p>
+        </div>
+        <aside class="meta-card">
+          <p class="meta-card-label">Belge Bilgileri</p>
+          <div class="meta-pills">
+            <span class="meta-pill">Son Güncelleme Tarihi: 15.03.2026</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="content-layout">
+      <article class="article-card">
+        <section class="legal-section is-intro">
+<p>İşbu Kullanım Koşulları, Yankily hizmetlerinin kullanımına ilişkin temel sözleşme hükümlerini içerir. Kişisel verilerin işlenmesine, çerez ve benzeri teknolojilere, saklama-imha esaslarına, ücretli satış akışlarına, ön bilgilendirmeye, cayma hakkına, abonelik ve ödeme koşullarına ilişkin işlem bazlı ek metinler, ilgili ekranlarda veya kalıcı veri saklayıcısı ile ayrıca sunulabilir. Emredici mevzuat hükümleri saklıdır; işbu metin ile emredici mevzuat arasında çelişki olması halinde emredici hükümler uygulanır.</p>
+</section>
+<section class="legal-section" id="i-tanimlar-ve-aciklamalar">
+<h2>I. Tanımlar ve Açıklamalar</h2>
+<p>&quot;Yankily&quot; veya &quot;Platform&quot;; işletmecisi Eren Özkan olan, kullanıcıların konuşma dışa aktarımlarını yükleyerek belirli bir kişi/konuşmacıya ilişkin dijital persona oluşturmasına, bu persona ile yapay zeka destekli sohbet yürütmesine, ilgili içerikleri yönetmesine ve bağlantılı dijital hizmetlerden yararlanmasına imkan sağlayan mobil uygulama, internet sitesi, backend servisleri, bildirim altyapıları ve ilişkili tüm dijital hizmetleri ifade eder.</p>
+<p>&quot;İşletmeci&quot; ve aksi açıkça belirtilmedikçe &quot;Veri Sorumlusu&quot;; iletişim bilgileri işbu sözleşmenin sonunda yer alan Eren Özkan&#x27;dır.</p>
+<p>&quot;İnternet Sitesi&quot;; yankily.com alan adlı internet sitesi ile buna bağlı sayfa ve hizmetlerdir.</p>
+<p>&quot;Mobil Uygulama&quot;; Apple App Store ve/veya yetkili diğer dağıtım kanallarında &quot;Yankily&quot; adıyla sunulan uygulamadır.</p>
+<p>&quot;Kullanıcı&quot;; kendi adına hesap oluşturan, Platform&#x27;u kullanan ve işbu sözleşmeyi kabul eden gerçek kişidir.</p>
+<p>&quot;İlgili Kişi&quot;; 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verisi işlenen gerçek kişiyi ifade eder. Buna Yankily kullanıcısı olmayan ancak yüklenen konuşma dışa aktarımlarında adı, mesajı veya diğer verileri yer alan üçüncü kişiler de dahil olabilir.</p>
+<p>&quot;Hesap&quot;; Kullanıcı&#x27;nın kimlik doğrulama, profil, ayar, bildirim tercihi, persona, sohbet ve ilgili hizmet kayıtlarının bütünüdür.</p>
+<p>&quot;İçe Aktarılan Veri&quot;; Kullanıcı tarafından Platform&#x27;a yüklenen konuşma dışa aktarımları, metin ve arşiv dosyaları, katılımcı adları, mesaj içerikleri, tarih-saat bilgileri, varsa ekli bağlamsal veriler ve bunlardan türetilen işlem çıktılarıdır.</p>
+<p>&quot;Persona&quot;; İçe Aktarılan Veri ve/veya Kullanıcı&#x27;nın manuel girdiği açıklamalar, talimatlar, ayarlar ve tercihler kullanılarak oluşturulan, belirli bir konuşma tarzını, tonunu veya ifade biçimini yaklaşık olarak modellemeyi amaçlayan dijital profildir.</p>
+<p>&quot;AI Sohbet&quot;; Persona, hafıza kayıtları, alıntılar, bağlamsal eşleştirmeler ve yapay zeka modelleri kullanılarak üretilen sohbet çıktılarıdır.</p>
+<p>&quot;İçerik&quot;; Kullanıcı tarafından Platform&#x27;a yüklenen, girilen, kaydedilen, gönderilen veya oluşturulan her türlü metin, fotoğraf, ses kaydı, profil fotoğrafı, destek talebi, sohbet mesajı, persona ayarı, talimat ve diğer verileri ifade eder.</p>
+<p>&quot;Özel Nitelikli Kişisel Veri&quot;; yürürlükteki KVKK mevzuatı uyarınca özel korumaya tabi sağlık, cinsel hayat, ceza mahkumiyeti, siyasi düşünce, dini inanç, biyometrik veri ve benzeri verileri ifade eder.</p>
+<p>&quot;Kalıcı Veri Saklayıcısı&quot;; tüketiciye veya ilgili kişiye gönderilen bilgilerin makul süre boyunca değişmeden saklanmasına ve aynen erişilmesine imkan veren e-posta, kısa mesaj, uygulama içi indirilebilir belge, hesap içi kayıt, disk ve benzeri araçları ifade eder.</p>
+<p>&quot;Kullanım Koşulları&quot; veya &quot;Sözleşme&quot;; işbu Yankily Kullanım Koşulları - Kullanıcı Sözleşmesi&#x27;dir.</p>
+</section>
+<section class="legal-section" id="ii-sozlesmenin-konusu">
+<h2>II. Sözleşmenin Konusu</h2>
+<p>İşbu Sözleşme; Platform&#x27;un kapsamını, Kullanıcı&#x27;nın hak ve yükümlülüklerini, yasaklı kullanımları, kişisel veri ve içerik yönetimine ilişkin temel esasları, tüketiciye yönelik ücretli hizmet kurallarını, bildirim ve destek süreçlerini, hesabın kapatılmasını ve sorumluluk hükümlerini düzenler.</p>
+<p>Kullanıcı, hesap oluşturarak, uygulamayı indirerek, Platform&#x27;a içerik yükleyerek, herhangi bir hizmetten yararlanarak veya &quot;kabul ediyorum&quot; benzeri bir onay vererek işbu Sözleşme&#x27;yi okuduğunu, anladığını ve kabul ettiğini beyan eder.</p>
+</section>
+<section class="legal-section" id="iii-hizmetin-kapsami-ve-platform-niteligi">
+<h2>III. Hizmetin Kapsamı ve Platform Niteliği</h2>
+<p>Yankily bir dijital teknoloji platformudur. Platform; Kullanıcı&#x27;nın yüklediği konuşma verilerinden persona oluşturulmasına, bu persona ile yapay zeka destekli sohbet kurulmasına, persona ayarlarının yönetilmesine, fotoğraf ve ses eki gibi destekleyici özelliklerin kullanılmasına, destek ve bildirim mekanizmalarının işletilmesine imkan sağlar.</p>
+<p>Yankily, herhangi bir gerçek kişinin birebir aynısı olduğunu, belirli bir kişinin iradesini, rızasını, düşüncesini veya beyanını eksiksiz ve doğru şekilde temsil ettiğini garanti etmez. Persona ve AI Sohbet çıktıları, algoritmik analiz ve yapay zeka üretimi sonucu oluşan yaklaşık/simülatif çıktılardır.</p>
+<p>Yankily; tıbbi teşhis veya tedavi, hukuki mütalaa, finansal yatırım tavsiyesi, kimlik doğrulama, vekalet, temsil, psikolojik danışmanlık veya acil yardım hizmeti sunmaz.</p>
+</section>
+<section class="legal-section" id="iv-uyelik-ve-hesap-kosullari">
+<h2>IV. Üyelik ve Hesap Koşulları</h2>
+<p>Platform&#x27;u kullanabilmek için Kullanıcı&#x27;nın reşit, fiil ehliyetine sahip ve işbu Sözleşme&#x27;yi kendi adına akdetmeye yetkili olması gerekir.</p>
+<p>Kullanıcı, hesap oluştururken sunduğu bilgilerin doğru, güncel ve kendisine ait olduğunu kabul eder. Yanıltıcı, sahte, başkasına ait veya hukuka aykırı bilgi kullanılması yasaktır.</p>
+<p>Hesap kişiye özeldir; üçüncü kişilere devredilemez, kiralanamaz, ödünç verilemez veya kullandırılamaz.</p>
+<p>İşletmeci; güvenlik, sahteciliğin önlenmesi, mevzuata uyum, hesap bütünlüğü, ödeme uyuşmazlığı, kötüye kullanım şüphesi veya teknik gereklilikler nedeniyle ek doğrulama, erişim kısıtlaması, oturum sonlandırma veya hesap askıya alma önlemleri alabilir.</p>
+</section>
+<section class="legal-section" id="v-kullanici-beyan-ve-yukumlulukleri">
+<h2>V. Kullanıcı Beyan ve Yükümlülükleri</h2>
+<p>Kullanıcı:</p>
+</section>
+<section class="legal-section" id="1-platforma-yukledigi-veya-platform-uzerinden-isledigi-icerikler-uzerinde-gerekli-hak-izin-ve-hukuki-dayanaklara-sahip-oldugunu">
+<h2>1. Platform&#x27;a yüklediği veya Platform üzerinden işlediği içerikler üzerinde gerekli hak, izin ve hukuki dayanaklara sahip olduğunu,</h2>
+</section>
+<section class="legal-section" id="2-ucuncu-kisilerin-kisilik-haklarini-ozel-hayatini-haberlesme-gizliligini-fikri-mulkiyet-haklarini-ve-diger-yasal-haklarini-ihlal-etmeyecegini">
+<h2>2. Üçüncü kişilerin kişilik haklarını, özel hayatını, haberleşme gizliliğini, fikri mülkiyet haklarını ve diğer yasal haklarını ihlal etmeyeceğini,</h2>
+</section>
+<section class="legal-section" id="3-platformu-aldatma-manipulasyon-taciz-dolandiricilik-kimlige-burunme-iftira-santaj-tehdit-spam-yasa-disi-ticari-faaliyet-veya-diger-hukuka-aykiri-amaclarla-kullanmayacagini">
+<h2>3. Platform&#x27;u aldatma, manipülasyon, taciz, dolandırıcılık, kimliğe bürünme, iftira, şantaj, tehdit, spam, yasa dışı ticari faaliyet veya diğer hukuka aykırı amaçlarla kullanmayacağını,</h2>
+</section>
+<section class="legal-section" id="4-platform-araciligiyla-olusturulan-persona-veya-ai-ciktilari-gercek-kisiymis-gibi-yaniltici-bicimde-karsi-tarafi-aldatmak-amaciyla-veya-ucuncu-kisilerin-guvenini-kotuye-kullanacak-sekilde-kullanmayacagini">
+<h2>4. Platform aracılığıyla oluşturulan persona veya AI çıktıları gerçek kişiymiş gibi yanıltıcı biçimde, karşı tarafı aldatmak amacıyla veya üçüncü kişilerin güvenini kötüye kullanacak şekilde kullanmayacağını,</h2>
+</section>
+<section class="legal-section" id="5-guvenlik-onlemlerini-asmaya-tersine-muhendislige-yetkisiz-erisime-sistem-butunlugunu-bozmaya-veya-hizmeti-kotuye-kullanmaya-yonelik-davranislarda-bulunmayacagini">
+<h2>5. Güvenlik önlemlerini aşmaya, tersine mühendisliğe, yetkisiz erişime, sistem bütünlüğünü bozmaya veya hizmeti kötüye kullanmaya yönelik davranışlarda bulunmayacağını,</h2>
+</section>
+<section class="legal-section" id="6-gecerli-mevzuata-uygulama-magazasi-kurallarina-ve-isbu-sozlesmeye-uygun-hareket-edecegini">
+<h2>6. Geçerli mevzuata, uygulama mağazası kurallarına ve işbu Sözleşme&#x27;ye uygun hareket edeceğini,</h2>
+</section>
+<section class="legal-section" id="7-mumkun-olan-hallerde-ucuncu-kisilere-ait-gereksiz-kisisel-verileri-yuklememeyi-zorunlu-olmayan-durumlarda-ucuncu-kisi-verilerini-anonimlestirmeyi-maskelemeyi-veya-redakte-etmeyi">
+<h2>7. Mümkün olan hallerde üçüncü kişilere ait gereksiz kişisel verileri yüklememeyi; zorunlu olmayan durumlarda üçüncü kişi verilerini anonimleştirmeyi, maskelemeyi veya redakte etmeyi,</h2>
+</section>
+<section class="legal-section" id="8-ozel-nitelikli-kisisel-verileri-ancak-acik-mesru-ve-yeterli-bir-hukuki-dayanak-varsa-yukleyecegini-boyle-bir-dayanak-yoksa-bu-tur-verileri-platforma-aktarmayacagini">
+<h2>8. Özel nitelikli kişisel verileri ancak açık, meşru ve yeterli bir hukuki dayanak varsa yükleyeceğini; böyle bir dayanak yoksa bu tür verileri Platform&#x27;a aktarmayacağını</h2>
+<p>kabul, beyan ve taahhüt eder.</p>
+</section>
+<section class="legal-section" id="vi-ice-aktarilan-veri-persona-olusturma-ai-sohbet-ve-kisisel-verilerin-islenmesi">
+<h2>VI. İçe Aktarılan Veri, Persona Oluşturma, AI Sohbet ve Kişisel Verilerin İşlenmesi</h2>
+</section>
+<section class="legal-section" id="1-genel-veri-isleme-cercevesi">
+<h2>1. Genel veri işleme çerçevesi</h2>
+<p>Yankily kapsamında işlenen başlıca veri kategorileri; kimlik ve hesap bilgileri, iletişim bilgileri, kimlik doğrulama ve cihaz bilgileri, konuşma dışa aktarımları, katılımcı isimleri, mesaj içerikleri, tarih-saat verileri, persona ayarları ve talimatları, sohbet kayıtları, alıntı ve hafıza kayıtları, fotoğraf ve ses kayıtları, transkripsiyon çıktıları, profil fotoğrafı, destek talepleri, log ve güvenlik kayıtları, ödeme ve abonelikle ilgili işlem kayıtları ile hukuki uyum kayıtlarından oluşabilir.</p>
+</section>
+<section class="legal-section" id="2-isleme-amaclari">
+<h2>2. İşleme amaçları</h2>
+<p>Bu veriler; hesabın oluşturulması ve yönetilmesi, kimlik doğrulama, içe aktarma işlemlerinin yürütülmesi, persona oluşturulması, AI Sohbet&#x27;in sunulması, içerik ve eklerin işlenmesi, güvenlik ve kötüye kullanımın önlenmesi, moderasyon, destek süreçlerinin yürütülmesi, bildirimlerin gönderilmesi, ödeme ve abonelik işlemlerinin yürütülmesi, yasal yükümlülüklerin yerine getirilmesi, uyuşmazlık çözümü, denetim izi, kayıt tutma, hata analizi, performans ve hizmet sürekliliği amaçlarıyla işlenebilir.</p>
+</section>
+<section class="legal-section" id="3-veri-toplama-yontemi-ve-hukuki-sebepler">
+<h2>3. Veri toplama yöntemi ve hukuki sebepler</h2>
+<p>Kişisel veriler; doğrudan Kullanıcı&#x27;dan, Mobil Uygulama ve İnternet Sitesi arayüzlerinden, yüklenen dosyalardan, cihaz ve kullanım kayıtlarından, destek başvurularından, ödeme/mağaza altyapılarından, kimlik doğrulama servislerinden ve otomatik/yarı otomatik teknik araçlardan elde edilebilir.</p>
+<p>İşleme faaliyetleri, ilgili işleme amacı bakımından geçerli olduğu ölçüde; sözleşmenin kurulması veya ifası, hukuki yükümlülüklerin yerine getirilmesi, bir hakkın tesisi/kullanılması/korunması, meşru menfaat, kanunlarda öngörülme, açık rıza ve KVKK&#x27;da öngörülen diğer işleme şartlarına dayanabilir. Özel nitelikli kişisel veriler bakımından ayrıca KVKK m.6 kapsamında geçerli işleme şartı aranır.</p>
+</section>
+<section class="legal-section" id="4-alici-gruplari-ve-veri-aktarimi">
+<h2>4. Alıcı grupları ve veri aktarımı</h2>
+<p>Kişisel veriler; hizmetin sunulması amacıyla yetkili tedarikçiler, barındırma ve bulut hizmeti sağlayıcıları, kimlik doğrulama hizmetleri, depolama altyapıları, bildirim servisleri, ödeme ve abonelik altyapıları, müşteri destek araçları, yapay zeka ve transkripsiyon servis sağlayıcıları, güvenlik ve loglama altyapıları, hukuk ve muhasebe danışmanları ile kanunen yetkili kamu kurum ve kuruluşlarına aktarılabilir.</p>
+<p>Yurt dışına veri aktarımı gerekmesi halinde aktarım, yürürlükteki KVKK m.9 rejimi kapsamında geçerli olduğu ölçüde ve uygun hukuki mekanizmalardan biri kullanılarak yapılır. Bu kapsamda yeterlilik kararı, standart sözleşmeler, bağlayıcı şirket kuralları veya mevzuatta öngörülen istisnai aktarım halleri kullanılabilir. Aktarımın kapsamı ve alıcı grupları, işlem bazında sunulan aydınlatma metinlerinde ayrıca detaylandırılabilir.</p>
+</section>
+<section class="legal-section" id="5-ucuncu-kisi-verileri-ve-kullanici-sorumlulugu">
+<h2>5. Üçüncü kişi verileri ve kullanıcı sorumluluğu</h2>
+<p>Kullanıcı, sohbet dışa aktarımlarında yer alan üçüncü kişi verilerini Platform&#x27;a yüklemeden önce bu işleme bakımından gerekli izin, açık rıza veya diğer hukuki dayanaklara sahip olduğunu kabul eder. İşletmeci, üçüncü kişi verileri bakımından ek açıklama, kanıt veya kaldırma talep etme hakkını saklı tutar.</p>
+<p>Kullanıcı, hukuki dayanağı bulunmayan özel nitelikli kişisel verileri, çocuklara ait hassas içerikleri, müstehcen içerikleri, sağlık raporlarını, banka ve ödeme bilgilerini veya benzeri yüksek riskli verileri gereksiz yere yüklememelidir.</p>
+</section>
+<section class="legal-section" id="6-ilgili-kisi-haklari">
+<h2>6. İlgili kişi hakları</h2>
+<p>KVKK kapsamında ilgili kişiler; kendileriyle ilgili kişisel verilerin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme, işleme amacını ve amaca uygun kullanımı öğrenme, yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri öğrenme, eksik veya yanlış işlenen verilerin düzeltilmesini isteme, silme veya yok etme talep etme, otomatik sistemlerce analiz sonucu aleyhe bir sonuca itiraz etme ve kanuni şartları varsa zararın giderilmesini talep etme haklarına sahiptir.</p>
+<p>Bu kapsamda başvurular, support@yankily.com e-posta adresi veya işbu sözleşmede yer alan posta adresi üzerinden iletilebilir. Veri sorumlusu, talebi niteliğine göre en kısa sürede ve en geç otuz gün içinde ücretsiz olarak sonuçlandırır; işlemin ayrıca bir maliyet gerektirmesi halinde mevzuatta izin verilen ücret talep edilebilir. Başvurunun reddi, cevabın yetersizliği veya süresinde cevap verilmemesi halinde ilgili kişi, KVKK mevzuatında öngörülen süreler dahilinde Kişisel Verileri Koruma Kurumu&#x27;na başvurabilir.</p>
+<p>Yankily kullanıcısı olmayan üçüncü kişiler de, kendilerine ait verilerin sohbet dışa aktarımlarında işlendiğini düşünmeleri halinde aynı kanallar üzerinden başvuru yapabilir. İşletmeci, talep sahibinin kimliğini doğrulama ve yetkisiz üçüncü kişilere veri açıklamama hakkını saklı tutar.</p>
+</section>
+<section class="legal-section" id="7-acik-riza-tercihler-ve-zorunlu-olmayan-islemler">
+<h2>7. Açık rıza, tercihler ve zorunlu olmayan işlemler</h2>
+<p>Hizmetin ifası için zorunlu olmayan, pazarlama, isteğe bağlı kişiselleştirme, bazı bildirim türleri, bazı çerez/SDK kullanımları veya mevzuat uyarınca açık rıza gerektiren diğer işlemler bakımından ilgili kişiye ayrı tercih sunulabilir. Hizmetin ifasıyla ilgisiz veri işleme faaliyetleri, mümkün olduğu ölçüde, hizmete erişimin ön şartı haline getirilmez.</p>
+</section>
+<section class="legal-section" id="8-tamamlayici-veri-koruma-metinleri">
+<h2>8. Tamamlayıcı veri koruma metinleri</h2>
+<p>Yankily&#x27;nin KVKK Aydınlatma Metni, gerektiğinde Açık Rıza Metinleri, Çerez/SDK Aydınlatma Metni ve Saklama-İmha esasları, ilgili işlem anında veya uygulama/site üzerinde ayrıca sunulabilir. İşlem bazlı aydınlatmalar, bu genel sözleşme hükümlerini tamamlar.</p>
+</section>
+<section class="legal-section" id="vii-fotograf-ses-kaydi-profil-fotografi-ve-diger-icerikler">
+<h2>VII. Fotoğraf, Ses Kaydı, Profil Fotoğrafı ve Diğer İçerikler</h2>
+<p>Platform, Kullanıcı&#x27;ya sohbet içinde fotoğraf yükleme/gönderme, sesli not kaydetme ve gönderme, profil fotoğrafı yükleme/güncelleme ve benzeri içerik işlevleri sunabilir.</p>
+<p>Ses kayıtları, hizmetin işlenebilmesi amacıyla transkripsiyon/çözümleme süreçlerinden geçirilebilir. Fotoğraflar ve diğer ekler, ilgili sohbet veya işleme akışı kapsamında depolanabilir, işlenebilir veya ilişkilendirilebilir.</p>
+<p>İçe aktarılan ham dosyalar, hizmetin teknik olarak yürütülmesi için geçici biçimde saklanabilir; iş akışı tamamlandıktan sonra operasyonel gereklilik kalmaması halinde tutulmayabilir, silinebilir veya erişime kapatılabilir. Bununla birlikte, persona, sohbet, hafıza, alıntı, iş emri, log, güvenlik, ödeme, destek, doğrulama ve benzeri türetilmiş veya ilişkili kayıtlar; hizmet sunumu, mevzuata uyum, denetim izi, ispat ve uyuşmazlık çözümü amaçlarıyla saklanabilir.</p>
+<p>Profil fotoğrafı, sohbet eki veya destek içeriği olarak yüklenen materyaller bakımından Kullanıcı; gerekli kullanım haklarına sahip olduğunu ve hukuka aykırı içerik yüklemeyeceğini kabul eder.</p>
+</section>
+<section class="legal-section" id="viii-sakincali-icerik-ve-kotuye-kullanima-karsi-sifir-tolerans">
+<h2>VIII. Sakıncalı İçerik ve Kötüye Kullanıma Karşı Sıfır Tolerans</h2>
+<p>Yankily, sakıncalı içerik ve kötüye kullanım bakımından sıfır tolerans politikası uygular. Aşağıdaki içerik ve davranışlar yasaktır:</p>
+</section>
+<section class="legal-section" id="1-taciz-nefret-soylemi-ayrimcilik-zorbalik-tehdit-veya-siddete-tesvik">
+<h2>1. Taciz, nefret söylemi, ayrımcılık, zorbalık, tehdit veya şiddete teşvik,</h2>
+</section>
+<section class="legal-section" id="2-cinsel-istismar-cocuklarin-istismari-mustehcen-veya-somurucu-icerik">
+<h2>2. Cinsel istismar, çocukların istismarı, müstehcen veya sömürücü içerik,</h2>
+</section>
+<section class="legal-section" id="3-grafik-siddet-iskence-veya-agir-zarar-iceren-icerik">
+<h2>3. Grafik şiddet, işkence veya ağır zarar içeren içerik,</h2>
+</section>
+<section class="legal-section" id="4-dolandiricilik-spam-sahtecilik-kimlige-burunme-deepfake-benzeri-aldatici-kullanim">
+<h2>4. Dolandırıcılık, spam, sahtecilik, kimliğe bürünme, deepfake benzeri aldatıcı kullanım,</h2>
+</section>
+<section class="legal-section" id="5-baskasi-adina-aldatici-mesaj-uretme-ucuncu-kisileri-yaniltmaya-yonelik-persona-kullanimi">
+<h2>5. Başkası adına aldatıcı mesaj üretme, üçüncü kişileri yanıltmaya yönelik persona kullanımı,</h2>
+</section>
+<section class="legal-section" id="6-kendine-zarar-verme-talimati-intihara-yonlendirme-veya-buna-yardimci-icerik">
+<h2>6. Kendine zarar verme talimatı, intihara yönlendirme veya buna yardımcı içerik,</h2>
+</section>
+<section class="legal-section" id="7-yasa-disi-faaliyet-suc-islemeye-tesvik-guvenlik-ihlali-girisimi-veya-zararli-yazilim">
+<h2>7. Yasa dışı faaliyet, suç işlemeye teşvik, güvenlik ihlali girişimi veya zararlı yazılım,</h2>
+</section>
+<section class="legal-section" id="8-kisisel-verilerin-izinsiz-paylasilmasi-ozel-hayatin-ihlali-doxxing-veya-mahremiyet-ihlali">
+<h2>8. Kişisel verilerin izinsiz paylaşılması, özel hayatın ihlali, doxxing veya mahremiyet ihlali,</h2>
+</section>
+<section class="legal-section" id="9-fikri-mulkiyet-kisilik-hakki-veya-diger-yasal-hak-ihlalleri">
+<h2>9. Fikri mülkiyet, kişilik hakkı veya diğer yasal hak ihlalleri,</h2>
+</section>
+<section class="legal-section" id="10-isbu-sozlesme-veya-yururlukteki-mevzuata-aykiri-diger-kullanimlar">
+<h2>10. İşbu Sözleşme veya yürürlükteki mevzuata aykırı diğer kullanımlar.</h2>
+<p>İşletmeci; içerikleri kaldırabilir, işleme almayabilir, görünürlüğünü kısıtlayabilir, ilgili veri setini silebilir, sohbet veya persona akışını durdurabilir, hesabı askıya alabilir veya kalıcı olarak kapatabilir. Ağır ihlaller ilgili resmi mercilere bildirilebilir.</p>
+<p>Kişilik hakları, fikri mülkiyet, mahremiyet, izinsiz içerik, özel görüntü/ses, üçüncü kişi verisi veya diğer hak ihlallerine ilişkin başvurular, support@yankily.com adresine &quot;Uyar-Kaldır Bildirimi&quot; veya benzeri açık bir başlıkla iletilebilir. Başvuruda başvuranın kimliği, ihlale konu içerik, bağlantı/kayıt bilgisi, hak sahipliği/temsil yetkisi ve talebin gerekçesi açıkça belirtilmelidir. İşletmeci, talepleri hukuki zorunluluk ve olayın niteliği doğrultusunda değerlendirir.</p>
+</section>
+<section class="legal-section" id="ix-guvenlik-riskli-tavsiye-talepleri-ve-yapay-zeka-sinirlamalari">
+<h2>IX. Güvenlik, Riskli Tavsiye Talepleri ve Yapay Zeka Sınırlamaları</h2>
+<p>Yankily; üçüncü kişi adına aldatıcı iletişim üretme, kimliğe bürünme, kendine zarar verme talimatı, tıbbi teşhis/tedavi önerisi, hukuki tavsiye, finansal yatırım önerisi ve benzeri yüksek riskli talepleri sınırlayabilir, filtreleyebilir, reddedebilir veya güvenlik mesajı gösterebilir.</p>
+<p>Platform seviyesinde veya persona bazında ek güvenlik katmanları uygulanabilir. Kullanıcı tarafından bazı tercihler seçilmiş olsa dahi İşletmeci, sistem bütünlüğü ve mevzuata uyum için daha katı güvenlik kuralları uygulayabilir.</p>
+<p>AI Sohbet çıktıları eksik, hatalı, bağlam dışı, güncel olmayan veya yanıltıcı olabilir. Bu çıktılar; profesyonel tıbbi, hukuki, finansal, psikolojik veya acil destek hizmeti yerine geçmez. Kullanıcı, özellikle sağlık, hukuk, finans, güvenlik ve üçüncü kişilerin haklarını etkileyen alanlarda bağımsız değerlendirme yapmayı ve gerektiğinde yetkili uzmanlardan destek almayı kabul eder.</p>
+<p>İşletmeci, kişisel verilerin hukuka aykırı işlenmesini önlemek, yetkisiz erişimi engellemek ve verilerin muhafazasını sağlamak amacıyla makul teknik ve idari tedbirler almaya çalışır. Buna rağmen hiçbir sistemin mutlak güvenlik garantisi yoktur.</p>
+<p>İşlenen kişisel verilerin kanuni olmayan yollarla üçüncü kişilerce elde edildiğinin tespit edilmesi halinde, mevzuatın gerektirdiği ölçüde ilgili kişilere ve yetkili kurumlara uygun yöntemlerle bildirim yapılır. Uygun olduğu ölçüde ve mümkünse Kişisel Verileri Koruma Kurulu&#x27;na gecikmeksizin ve en geç 72 saat içinde bildirim yapılması hedeflenir.</p>
+</section>
+<section class="legal-section" id="x-ucretler-mesafeli-sozlesmeler-abonelikler-krediler-ve-iadeler">
+<h2>X. Ücretler, Mesafeli Sözleşmeler, Abonelikler, Krediler ve İadeler</h2>
+<p>Yankily, ücretsiz özelliklerin yanı sıra abonelikli planlar, kredi bazlı kullanım hakları, ek kredi/top-up paketleri veya ücretli özellikler sunabilir. Bu hizmetlerin sunulması halinde geçerli plan bilgileri, limitler, yenileme koşulları, varsa uyumluluk bilgileri, teknik koruma önlemleri, fiyatlar, vergiler ve ödeme esasları uygulama içinde, ilgili satış ekranında veya yetkili ödeme kanalında ayrıca gösterilir.</p>
+<p>Tüketiciden ödeme yükümlülüğü doğmadan önce, yürürlükteki mesafeli sözleşme mevzuatına uygun ön bilgilendirme ayrı bir ekranda veya kalıcı veri saklayıcısı ile sunulabilir. Bu ön bilgilendirme, en azından ürün/hizmetin temel nitelikleri, satıcı/sağlayıcı bilgileri, hızlı temas kanalları, toplam fiyat, ödeme ve ifa koşulları, şikayet çözüm yöntemleri, varsa cayma hakkı ve istisnaları, dijital içeriğin uyumluluk/işlevsellik bilgileri ile tüketici uyuşmazlık başvuru yollarını içerebilir.</p>
+<p>Tüketici, mesafeli sözleşme kurulmadan önce siparişin ödeme yükümlülüğü doğurduğu konusunda açık biçimde bilgilendirilir. Ön bilgilendirmenin teyidi alınabilir. Ön bilgilendirme ve sözleşme kayıtları, uygun olduğu ölçüde kalıcı veri saklayıcısı ile saklanabilir veya erişime sunulabilir.</p>
+<p>Mevzuatta aksi öngörülmeyen haller saklı kalmak kaydıyla, tüketicinin mesafeli sözleşmelerde on dört gün içinde herhangi bir gerekçe göstermeksizin ve cezai şart ödemeksizin cayma hakkı bulunabilir. Ancak dijital içerik veya dijital hizmet niteliği taşıyan bazı işlemlerde, mevzuatın izin verdiği hallerde, ifaya cayma süresi sona ermeden başlanması için tüketiciden ayrıca açık talep/onay alınabilir ve bu durumda cayma hakkının sonuçlarına ilişkin ayrıca teyit alınabilir.</p>
+<p>Cayma hakkının kullanımı, süresi, istisnaları, iade yöntemi ve örnek cayma formu ilgili satış akışında ayrıca sunulur. Mevzuat gereği bilgilendirme yapılmayan hallerde zorunlu tüketici hakları saklıdır.</p>
+<p>Abonelik sunulması halinde:</p>
+</section>
+<section class="legal-section" id="1-belirsiz-sureli-veya-suresi-bir-yil-ve-daha-uzun-abonelikler-tuketici-tarafindan-herhangi-bir-gerekce-gostermeksizin-ve-cezai-sart-odemeksizin-istenilen-zamanda-feshedilebilir">
+<h2>1. Belirsiz süreli veya süresi bir yıl ve daha uzun abonelikler, tüketici tarafından herhangi bir gerekçe göstermeksizin ve cezai şart ödemeksizin istenilen zamanda feshedilebilir.</h2>
+</section>
+<section class="legal-section" id="2-fesih-yontemi-sozlesmenin-kurulmasini-saglayan-yontemden-daha-agir-olamaz-ve-tuketicinin-fesih-hakkini-zorlastiracak-sekilde-kurgulanamaz">
+<h2>2. Fesih yöntemi, sözleşmenin kurulmasını sağlayan yöntemden daha ağır olamaz ve tüketicinin fesih hakkını zorlaştıracak şekilde kurgulanamaz.</h2>
+</section>
+<section class="legal-section" id="3-fesih-bildiriminin-yazili-olarak-veya-kalici-veri-saklayicisi-ile-iletilmesi-yeterlidir">
+<h2>3. Fesih bildiriminin yazılı olarak veya kalıcı veri saklayıcısı ile iletilmesi yeterlidir.</h2>
+</section>
+<section class="legal-section" id="4-fesih-talebi-mevzuatta-daha-lehe-bir-sure-ongorulmedikce-bildirimin-ulastigi-tarihten-itibaren-en-gec-yedi-gun-icinde-yerine-getirilir">
+<h2>4. Fesih talebi, mevzuatta daha lehe bir süre öngörülmedikçe, bildirimin ulaştığı tarihten itibaren en geç yedi gün içinde yerine getirilir.</h2>
+</section>
+<section class="legal-section" id="5-feshin-hukum-ifade-etmesinden-sonra-kalan-pesin-odemeler-depozito-veya-teminat-niteligindeki-tutarlar-mevzuata-uygun-surelerde-iade-edilir">
+<h2>5. Feshin hüküm ifade etmesinden sonra kalan peşin ödemeler, depozito veya teminat niteliğindeki tutarlar mevzuata uygun sürelerde iade edilir.</h2>
+<p>App Store veya diğer yetkili ödeme aracılarının kullanıldığı durumlarda ödeme, yenileme, iptal, abonelik yönetimi, faturalandırma ve iade süreçleri ilgili ödeme kanalının kurallarıyla birlikte değerlendirilir. Ancak zorunlu tüketici hakları saklıdır.</p>
+<p>Aktif fiyat listesi, kesin iade oranı veya sabit kredi politikası işbu metinle vaat edilmez. Geçerli plan ve kullanım koşulları işlem anındaki satış ekranı ve ek koşullar ile belirlenir.</p>
+</section>
+<section class="legal-section" id="xi-bildirimler-ticari-elektronik-iletiler-cerezlersdklar-ve-destek-talepleri">
+<h2>XI. Bildirimler, Ticari Elektronik İletiler, Çerezler/SDK&#x27;lar ve Destek Talepleri</h2>
+<p>Kullanıcı; uygulama içi bildirimler, hesap içi uyarılar, operasyonel push bildirimleri, e-posta bilgilendirmeleri ve benzeri araçlarla hizmete ilişkin bilgi alabilir.</p>
+<p>Operasyonel bildirimler ile pazarlama/tanıtım bildirimleri mümkün olduğu ölçüde birbirinden ayrıştırılır. Bir hizmetin doğal parçası olan işlem/hesap/güvenlik bildirimlerinin alınması, ilgisiz pazarlama bildirimlerine onay verilmesine bağlanmaz.</p>
+<p>Ticari elektronik ileti gönderimi yapılması halinde, bu iletiler yürürlükteki elektronik ticaret ve ticari ileti mevzuatına uygun biçimde yönetilir. Gerekli olduğu ölçüde önceden onay alınır; ret hakkı kolay, ücretsiz ve erişilebilir şekilde sağlanır. İlgili tercihler, mevzuatın gerektirdiği ölçüde İleti Yönetim Sistemi ve benzeri altyapılar üzerinden de yönetilebilir.</p>
+<p>İnternet Sitesi ve Mobil Uygulama; çerez, cihaz tanımlayıcıları, SDK&#x27;lar, benzeri izleme/analitik teknolojiler veya üçüncü taraf yazılım bileşenleri kullanabilir. Hangi teknoloji ve hangi amaçla kullanıldığı, bunların saklama süreleri, birinci veya üçüncü taraf niteliği ve gerekliyse onay mekanizmaları, ayrı Çerez/SDK Aydınlatma Metni veya ilgili gizlilik ekranlarında gösterilebilir.</p>
+<p>Kullanıcı, destek veya şikayet taleplerini uygulama içi araçlar, destek e-postası veya ilgili iletişim kanalları üzerinden iletebilir. Destek kayıtları; takip, doğrulama, sorun çözümü, hizmet kalitesi, güvenlik, yasal uyum ve denetim amaçlarıyla saklanabilir.</p>
+</section>
+<section class="legal-section" id="xii-veri-silme-saklama-hesap-kapatma-ve-sonlandirma">
+<h2>XII. Veri Silme, Saklama, Hesap Kapatma ve Sonlandırma</h2>
+<p>Kullanıcı, uygulama içi uygun alanlar üzerinden belirli veri setlerini, personayı, sohbetleri veya hesabını silme talebinde bulunabilir. Teknik bağımlılıklar sebebiyle belirli bir içeriğin silinmesi, ilişkili persona, hafıza, sohbet, ek dosya veya diğer kayıtların da kaldırılmasına yol açabilir.</p>
+<p>Hesabın silinmesi halinde Kullanıcı&#x27;ya ait hesap kaydı, içe aktarılan veri setleri, persona kayıtları, sohbet oturumları, ilişkili içerikler ve bunlarla bağlantılı bazı veriler silinebilir, anonimleştirilebilir veya erişime kapatılabilir. Bununla birlikte, hukuki yükümlülükler, veri güvenliği, denetim izi, muhasebe/faturalandırma, zamanaşımı, uyuşmazlık çözümü, kötüye kullanımın önlenmesi ve mevzuata uyum amaçlarıyla saklanması zorunlu veya meşru olan kayıtlar tutulabilir.</p>
+<p>Kişisel veriler, yalnızca ilgili işleme amacının gerektirdiği süre boyunca ve ilgili mevzuatın izin verdiği ölçüde saklanır. Saklama süreleri; hizmet gerekliliği, yasal yükümlülük, ispat ihtiyacı, güvenlik, abonelik/ödeme kayıtları ve zamanaşımı kriterleri dikkate alınarak belirlenir. Daha detaylı saklama ve imha esasları ayrı politika/metinlerde düzenlenebilir.</p>
+<p>Erişim, trafik, güvenlik ve yer sağlayıcı/yayıncılık kapsamındaki teknik kayıtlar; uygulanabilir internet mevzuatı, güvenlik ve denetim yükümlülükleri çerçevesinde ayrıca tutulabilir.</p>
+<p>İşletmeci; işbu Sözleşme&#x27;nin ihlali, güvenlik riski, kötüye kullanım şüphesi, üçüncü kişi hak ihlali, yasal zorunluluk, ödeme uyuşmazlığı, teknik bütünlük veya ticari/operasyonel gereklilik nedeniyle hesabı askıya alabilir, sınırlandırabilir veya kapatabilir.</p>
+</section>
+<section class="legal-section" id="xiii-fikri-mulkiyet-ve-lisans">
+<h2>XIII. Fikri Mülkiyet ve Lisans</h2>
+<p>Yankily&#x27;ye ait yazılım, tasarım, marka, logo, arayüz, veri yapıları, derlemeler, dokümantasyon ve diğer tüm unsurlar üzerindeki haklar, aksi açıkça belirtilmedikçe İşletmeci&#x27;ye ve/veya ilgili hak sahiplerine aittir.</p>
+<p>Kullanıcı&#x27;ya, Mobil Uygulama&#x27;yı ve hizmetleri yalnızca kişisel, yasal ve işbu Sözleşme&#x27;ye uygun kullanım amacıyla kullanabilmesi için sınırlı, geri alınabilir, münhasır olmayan, devredilemez ve alt lisans verilemez bir kullanım hakkı tanınır.</p>
+<p>Kullanıcı; Platform&#x27;u kopyalayamaz, çoğaltamaz, dağıtamaz, satamaz, kiralayamaz, tersine mühendislik yapamaz, decompile edemez, kaynak koda dönüştüremez, güvenlik ve erişim kontrollerini aşamaz veya hizmeti bozacak biçimde kullanamaz.</p>
+</section>
+<section class="legal-section" id="xiv-sorumlulugun-sinirlandirilmasi-ve-tazmin">
+<h2>XIV. Sorumluluğun Sınırlandırılması ve Tazmin</h2>
+<p>Yürürlükteki hukuk tarafından izin verilen azami ölçüde; Yankily, İşletmeci, çalışanlar, temsilciler, iş ortakları ve altyapı sağlayıcıları; Platform&#x27;un kullanımından, AI çıktılarının hatalı veya eksik olmasından, persona&#x27;nın gerçek kişiyi birebir yansıtmamasından, içerik kaybından, veri doğruluğu sorunlarından, üçüncü kişi fiillerinden veya hizmet kesintilerinden doğan dolaylı, arızi veya sonuç zararlarından sorumlu değildir.</p>
+<p>Bununla birlikte, emredici tüketici mevzuatı, KVKK&#x27;dan doğan yükümlülükler, kasıt, ağır kusur ve sorumluluğun mevzuat gereği sınırlandırılamadığı haller saklıdır. İşbu Sözleşme, İşletmeci&#x27;nin emredici hukuk kuralları uyarınca bertaraf edilemeyecek sorumluluğunu kaldırmaz.</p>
+<p>Platform &quot;olduğu gibi&quot; ve &quot;mevcut olduğu ölçüde&quot; sunulur. Belirli bir amaca uygunluk, kesintisizlik, kusursuzluk, sürekli erişilebilirlik veya belirli bir sonucun elde edileceğine dair açık ya da zımni garanti verilmez.</p>
+<p>Kullanıcı; işbu Sözleşme&#x27;yi ihlali, hukuka aykırı içeriği, üçüncü kişi haklarını ihlali veya Platform&#x27;u kötüye kullanımı nedeniyle doğabilecek talep, zarar, masraf, idari yaptırım ve benzeri yükümlülüklerden İşletmeci&#x27;yi sorumlu tutmayacağını, kusuru oranında doğan zararları tazmin edeceğini kabul eder.</p>
+</section>
+<section class="legal-section" id="xv-degisiklikler-uygulanacak-hukuk-ve-yetki">
+<h2>XV. Değişiklikler, Uygulanacak Hukuk ve Yetki</h2>
+<p>İşbu Kullanım Koşulları, Yankily tarafından zaman zaman güncellenebilir, değiştirilebilir veya genişletilebilir. Güncel metin internet sitesinde, mobil uygulamada veya ilgili dijital kanallarda yayımlandığı tarihte yürürlüğe girer.</p>
+<p>Değişikliklerden sonra Platform&#x27;un kullanılmaya devam edilmesi, güncel Sözleşme&#x27;nin kabulü anlamına gelir. Tüketici aleyhine önemli sonuç doğuran değişiklikler bakımından, mevzuatın gerektirdiği ölçüde ayrıca bildirim veya tercih sunulabilir.</p>
+<p>İşbu Sözleşme Türkiye Cumhuriyeti hukukuna tabidir.</p>
+<p>Tüketici sıfatını haiz Kullanıcı&#x27;lar bakımından, uyuşmazlıkların çözümünde yürürlükteki tüketici mevzuatında öngörülen Tüketici Hakem Heyeti, zorunlu arabuluculuk, Tüketici Mahkemesi ve diğer başvuru yolları saklıdır. Tüketici, mevzuatın izin verdiği yer bakımından kendi yerleşim yerindeki veya tüketici işleminin yapıldığı yerdeki yetkili mercilere başvurabilir.</p>
+<p>Tüketici sıfatını haiz olmayan kişiler bakımından, işbu Sözleşme&#x27;den doğan uyuşmazlıklarda İstanbul Anadolu Mahkemeleri ve İstanbul Anadolu İcra Müdürlükleri yetkilidir.</p>
+</section>
+<section class="legal-section" id="xvi-iletisim-bilgileri">
+<h2>XVI. İletişim Bilgileri</h2>
+<p>İşletmeci: Eren Özkan Web Sitesi: https://yankily.com Destek E-postası: support@yankily.com Posta Adresi: Ataşehir Merkez PTT Şubesi, Küçükbakkalköy Mah. Kayışdağı Cad. No:87/A, 34750 Ataşehir/İstanbul, Türkiye Hızlı temas kanalları: uygulama içi destek araçları, destek e-postası ve internet sitesi üzerinden sunulan iletişim alanlarıdır. Ücretli satış akışlarında, varsa telefon, MERSİS, vergi ve ilave satıcı/sağlayıcı kimlik/temas bilgileri ayrıca gösterilebilir. Tanıtıcı bilgiler, uygulanabilir internet mevzuatının gerektirdiği ölçüde erişilebilir tutulur.</p>
+</section>
+<section class="legal-section" id="xvii-son-kullanici-lisans-sozlesmesi-eula-niteligindeki-hukumler">
+<h2>XVII. Son Kullanıcı Lisans Sözleşmesi (EULA) Niteliğindeki Hükümler</h2>
+<p>İşbu bölüm, işbu Kullanım Koşulları&#x27;nın ayrılmaz parçasıdır. Kullanıcı, hesap oluşturarak, uygulamayı indirerek, uygulamayı kullanarak veya &quot;kabul&quot; beyanında bulunarak bu lisans hükümlerini de kabul etmiş sayılır.</p>
+</section>
+<section class="legal-section" id="1-lisans-kapsami">
+<h2>1. Lisans Kapsamı</h2>
+<p>Kullanıcı&#x27;ya Mobil Uygulama&#x27;yı yalnızca kişisel kullanım amacıyla, desteklenen cihazlarda ve işbu Sözleşme&#x27;ye uygun şekilde kullanması için sınırlı bir lisans verilir.</p>
+</section>
+<section class="legal-section" id="2-guncellemeler">
+<h2>2. Güncellemeler</h2>
+<p>Yankily; güvenlik, performans, uyumluluk ve özellik geliştirmeleri amacıyla güncellemeler yayımlayabilir. Bazı özellikler üçüncü taraf servis sağlayıcılar, bulut altyapıları, kimlik doğrulama araçları, bildirim servisleri veya yapay zeka sağlayıcıları üzerinden çalışabilir.</p>
+</section>
+<section class="legal-section" id="3-kullanim-kisitlamalari">
+<h2>3. Kullanım Kısıtlamaları</h2>
+<p>Kullanıcı:</p>
+<ul>
+<li>Uygulama&#x27;yı kopyalayamaz, çoğaltamaz, decompile edemez, reverse engineer yapamaz, değiştiremez veya kaynak koda dönüştüremez.</li>
+<li>Uygulama&#x27;nın güvenliğini, lisans doğrulamasını veya erişim kontrollerini aşamaz.</li>
+<li>Uygulama&#x27;yı kötü amaçlı, otomatik, yanıltıcı veya hukuka aykırı amaçlarla kullanamaz.</li>
+</ul>
+</section>
+<section class="legal-section" id="4-magaza-kosullari">
+<h2>4. Mağaza Koşulları</h2>
+<p>Mobil Uygulama&#x27;nın Apple App Store veya başka bir yetkili mağaza üzerinden edinilmesi halinde, ilgili mağazanın zorunlu dağıtım ve kullanım kuralları ayrıca uygulanabilir. Bu kurallar ile işbu Sözleşme arasında çelişki olması halinde, emredici olduğu ölçüde ilgili mağaza ve mevzuat hükümleri öncelikle uygulanır.</p>
+</section>
+<section class="legal-section" id="5-lisansin-sona-ermesi">
+<h2>5. Lisansın Sona Ermesi</h2>
+<p>Kullanıcı&#x27;nın işbu Sözleşme&#x27;yi ihlal etmesi, hesabının kapatılması veya uygulamayı kullanma hakkının sona ermesi halinde verilen lisans kendiliğinden sona erer. Bu durumda Kullanıcı, uygulamanın kullanımını durdurmakla yükümlüdür.</p>
+</section>
+<section class="legal-section" id="son-hukum">
+<h2>Son Hüküm</h2>
+<p>Kullanıcı, Yankily&#x27;nin yapay zeka destekli, veri işleme ve persona simülasyonu temelli bir hizmet olduğunu; bu nedenle içerik doğruluğu, birebir temsil, sürekli erişilebilirlik ve sonuç garantisi verilemeyeceğini; Platform&#x27;u yalnızca hukuka uygun, dürüst ve güvenli amaçlarla kullanacağını kabul eder.</p>
+</section>
+      </article>
+      
+        <aside class="toc-card">
+          <div class="toc-title">Bu sayfada</div>
+          <nav class="toc-links" aria-label="İçindekiler">
+            <a href="#i-tanimlar-ve-aciklamalar">I. Tanımlar ve Açıklamalar</a>
+<a href="#ii-sozlesmenin-konusu">II. Sözleşmenin Konusu</a>
+<a href="#iii-hizmetin-kapsami-ve-platform-niteligi">III. Hizmetin Kapsamı ve Platform Niteliği</a>
+<a href="#iv-uyelik-ve-hesap-kosullari">IV. Üyelik ve Hesap Koşulları</a>
+<a href="#v-kullanici-beyan-ve-yukumlulukleri">V. Kullanıcı Beyan ve Yükümlülükleri</a>
+<a href="#1-platforma-yukledigi-veya-platform-uzerinden-isledigi-icerikler-uzerinde-gerekli-hak-izin-ve-hukuki-dayanaklara-sahip-oldugunu">1. Platform&#x27;a yüklediği veya Platform üzerinden işlediği içerikler üzerinde gerekli hak, izin ve hukuki dayanaklara sahip olduğunu,</a>
+<a href="#2-ucuncu-kisilerin-kisilik-haklarini-ozel-hayatini-haberlesme-gizliligini-fikri-mulkiyet-haklarini-ve-diger-yasal-haklarini-ihlal-etmeyecegini">2. Üçüncü kişilerin kişilik haklarını, özel hayatını, haberleşme gizliliğini, fikri mülkiyet haklarını ve diğer yasal haklarını ihlal etmeyeceğini,</a>
+<a href="#3-platformu-aldatma-manipulasyon-taciz-dolandiricilik-kimlige-burunme-iftira-santaj-tehdit-spam-yasa-disi-ticari-faaliyet-veya-diger-hukuka-aykiri-amaclarla-kullanmayacagini">3. Platform&#x27;u aldatma, manipülasyon, taciz, dolandırıcılık, kimliğe bürünme, iftira, şantaj, tehdit, spam, yasa dışı ticari faaliyet veya diğer hukuka aykırı amaçlarla kullanmayacağını,</a>
+<a href="#4-platform-araciligiyla-olusturulan-persona-veya-ai-ciktilari-gercek-kisiymis-gibi-yaniltici-bicimde-karsi-tarafi-aldatmak-amaciyla-veya-ucuncu-kisilerin-guvenini-kotuye-kullanacak-sekilde-kullanmayacagini">4. Platform aracılığıyla oluşturulan persona veya AI çıktıları gerçek kişiymiş gibi yanıltıcı biçimde, karşı tarafı aldatmak amacıyla veya üçüncü kişilerin güvenini kötüye kullanacak şekilde kullanmayacağını,</a>
+<a href="#5-guvenlik-onlemlerini-asmaya-tersine-muhendislige-yetkisiz-erisime-sistem-butunlugunu-bozmaya-veya-hizmeti-kotuye-kullanmaya-yonelik-davranislarda-bulunmayacagini">5. Güvenlik önlemlerini aşmaya, tersine mühendisliğe, yetkisiz erişime, sistem bütünlüğünü bozmaya veya hizmeti kötüye kullanmaya yönelik davranışlarda bulunmayacağını,</a>
+<a href="#6-gecerli-mevzuata-uygulama-magazasi-kurallarina-ve-isbu-sozlesmeye-uygun-hareket-edecegini">6. Geçerli mevzuata, uygulama mağazası kurallarına ve işbu Sözleşme&#x27;ye uygun hareket edeceğini,</a>
+<a href="#7-mumkun-olan-hallerde-ucuncu-kisilere-ait-gereksiz-kisisel-verileri-yuklememeyi-zorunlu-olmayan-durumlarda-ucuncu-kisi-verilerini-anonimlestirmeyi-maskelemeyi-veya-redakte-etmeyi">7. Mümkün olan hallerde üçüncü kişilere ait gereksiz kişisel verileri yüklememeyi; zorunlu olmayan durumlarda üçüncü kişi verilerini anonimleştirmeyi, maskelemeyi veya redakte etmeyi,</a>
+<a href="#8-ozel-nitelikli-kisisel-verileri-ancak-acik-mesru-ve-yeterli-bir-hukuki-dayanak-varsa-yukleyecegini-boyle-bir-dayanak-yoksa-bu-tur-verileri-platforma-aktarmayacagini">8. Özel nitelikli kişisel verileri ancak açık, meşru ve yeterli bir hukuki dayanak varsa yükleyeceğini; böyle bir dayanak yoksa bu tür verileri Platform&#x27;a aktarmayacağını</a>
+<a href="#vi-ice-aktarilan-veri-persona-olusturma-ai-sohbet-ve-kisisel-verilerin-islenmesi">VI. İçe Aktarılan Veri, Persona Oluşturma, AI Sohbet ve Kişisel Verilerin İşlenmesi</a>
+          </nav>
+        </aside>
+        
     </section>
   </main>
+
+  <footer class="footer">
+    <div>Yankily © 2026 Eren Özkan</div>
+    <div class="footer-links">
+      <a href="../">Ana Sayfa</a>
+      <a href="../terms/">Kullanım Koşulları</a>
+      <a href="../privacy/">Gizlilik</a>
+      <a href="../kvkk/">KVKK</a>
+    </div>
+  </footer>
 </body>
 </html>
